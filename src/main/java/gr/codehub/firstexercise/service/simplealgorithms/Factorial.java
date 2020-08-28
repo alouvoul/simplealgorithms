@@ -1,4 +1,4 @@
-package gr.codehub.firstexercise.service;
+package gr.codehub.firstexercise.service.simplealgorithms;
 
 import java.util.Random;
 

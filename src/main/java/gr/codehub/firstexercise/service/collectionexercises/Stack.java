@@ -1,4 +1,4 @@
-package gr.codehub.firstexercise.service;
+package gr.codehub.firstexercise.service.collectionexercises;
 
 import java.util.ArrayList;
 
@@ -7,7 +7,7 @@ public class Stack {
     ArrayList<Long> stack;
 
     public Stack() {
-        stack = new ArrayList<Long>();
+        stack = new ArrayList<>();
     }
 
     public void push(long number){

@@ -1,4 +1,4 @@
-package gr.codehub.firstexercise.service;
+package gr.codehub.firstexercise.service.collectionexercises;
 
 public class Symmetric {
 

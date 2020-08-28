@@ -1,4 +1,4 @@
-package gr.codehub.firstexercise.service;
+package gr.codehub.firstexercise.service.simplealgorithms;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ public class PrimeNumbers {
     }
 
     public ArrayList<Integer> findPrimeNumbersInList(ArrayList<Integer> primeList){
-        ArrayList<Integer> primes = new ArrayList<Integer>();
+        ArrayList<Integer> primes = new ArrayList<>();
 
         for (int number: primeList) {
             if(calculatePrimeNumbersSimpleAlgorithm(number))

@@ -1,10 +1,10 @@
-package gr.codehub.firstexercise.service;
+package gr.codehub.firstexercise.service.collectionexercises;
 import java.util.Stack;
 public class ReverseString {
     Stack<Character> stack;
 
     public ReverseString() {
-        stack = new Stack<Character>();
+        stack = new Stack<>();
     }
 
     public String reverse(String text){

@@ -1,6 +1,8 @@
 package gr.codehub.firstexercise;
 
 import gr.codehub.firstexercise.service.*;
+import gr.codehub.firstexercise.service.collectionexercises.*;
+import gr.codehub.firstexercise.service.simplealgorithms.*;
 
 import java.util.ArrayList;
 
@@ -41,12 +43,12 @@ public class Main {
         System.out.println("Number of decimal digits per number:");
         CountDecimalPartNumbers cd = new CountDecimalPartNumbers();
         System.out.println(cd.getDecimalPart((float)13.1555));
-        System.out.println(cd.getDecimalPart((float)13.0));;
-        System.out.println(cd.getDecimalPart((float)13.1));;
-        System.out.println(cd.getDecimalPart((float)0.44041111111));;
+        System.out.println(cd.getDecimalPart((float)13.0));
+        System.out.println(cd.getDecimalPart((float)13.1));
+        System.out.println(cd.getDecimalPart((float)0.44041111111));
 
         int[] ids = {3, 0, 1, 5, 5, 50, 55, 55, 100, 111};
-        ArrayList<Integer> values = new ArrayList<Integer>();
+        ArrayList<Integer> values = new ArrayList<>();
 
         // Add all the ints as Integers with add.
         // ... The ints are cast to Integer implicitly.
@@ -83,6 +85,13 @@ public class Main {
         System.out.println(symmetric.symmetricString("123454321"));
         System.out.println(symmetric.symmetricString("12398"));
 
+
+        Password password = new Password();
+        System.out.println("Validation...");
+        password.validation("Tasos");
+        password.validation("asosav1@");
+        password.validation("Tasosabc");
+        password.validation("Taaaasos123@");
     }
 
 }
