@@ -59,6 +59,30 @@ public class Main {
         EliminateDuplicates ed = new EliminateDuplicates();
         System.out.println("Eliminating duplicates....");
         System.out.println(ed.eliminateDuplicatesList(values));
+
+        OrderDigits od = new OrderDigits();
+        System.out.println(od.descendingOrderInt(31056431));
+
+
+        Stack stack = new Stack();
+        stack.push(1);
+        stack.push(2);
+        stack.push(4);
+        stack.push(8);
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+
+
+        ReverseString rs = new ReverseString();
+        System.out.println(rs.reverse("Tasos123456789"));
+
+        Symmetric symmetric = new Symmetric();
+        System.out.println(symmetric.symmetricString("TASOS"));
+        System.out.println(symmetric.symmetricString("abba"));
+        System.out.println(symmetric.symmetricString("123454321"));
+        System.out.println(symmetric.symmetricString("12398"));
+
     }
 
 }
