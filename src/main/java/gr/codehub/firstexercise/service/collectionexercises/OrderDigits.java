@@ -2,12 +2,13 @@ package gr.codehub.firstexercise.service.collectionexercises;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class OrderDigits {
 
-    public ArrayList<Integer> descendingOrderInt(int number){
+    public List<Integer> descendingOrderInt(int number){
 
-        ArrayList<Integer> orderedDigits = new ArrayList<>();
+        List<Integer> orderedDigits = new ArrayList<>();
         while (number > 0){
             orderedDigits.add(number % 10);
             number = number / 10;

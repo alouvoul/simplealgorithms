@@ -3,13 +3,17 @@ package gr.codehub.firstexercise;
 import gr.codehub.firstexercise.service.*;
 import gr.codehub.firstexercise.service.collectionexercises.*;
 import gr.codehub.firstexercise.service.simplealgorithms.*;
+import gr.codehub.firstexercise.view.UI;
 
 import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-        testing();
+        UI ui = new UI();
+        ui.exerciseChoose();
+
+//        testing();
     }
 
 

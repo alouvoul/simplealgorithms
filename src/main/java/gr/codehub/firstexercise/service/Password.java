@@ -1,10 +1,7 @@
 package gr.codehub.firstexercise.service;
 import java.util.regex.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.util.Arrays;
+import lombok.NoArgsConstructor;
 
 
 @NoArgsConstructor
@@ -28,7 +25,6 @@ public class Password {
         criteria[Criteria.SPECIAL_CHARACTER.ordinal()] = specialCharacter(password);
         criteria[Criteria.PASSWORD_LENGTH.ordinal()] = size(password);
         criteria[Criteria.SEQUENCE_CHARACTERS.ordinal()] = sequenceCharacters(password);
-        System.out.println(Arrays.toString(criteria));
 
         printCriteria();
         return checkCriteria();

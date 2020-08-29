@@ -14,10 +14,6 @@ public class Stack {
         stack.add(number);
     }
 
-    public void push(char c){
-
-    }
-
     public long pop(){
 
         if( isEmpty() ){
