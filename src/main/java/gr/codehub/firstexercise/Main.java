@@ -9,6 +9,11 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
+        testing();
+    }
+
+
+    public static void testing(){
         Factorial f = new Factorial();
         System.out.println(f.calculateFactorial(0));
         System.out.println(f.calculateFactorial(1));
@@ -93,5 +98,4 @@ public class Main {
         password.validation("Tasosabc");
         password.validation("Taaaasos123@");
     }
-
 }

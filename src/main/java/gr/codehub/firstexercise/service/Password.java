@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Arrays;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,7 +15,11 @@ public class Password {
     String password;
     boolean[] criteria = new boolean[6];
 
-
+    /**
+     * Called to check a password if met the criteria. Organizes the steps to be completed.
+     * @param password Text given by the user
+     * @return TRUE if the password is acceptable, FALSE if doesn't met the criteria
+     */
     public boolean validation(String password){
         criteria[0] = upperCaseLetter(password);
         criteria[1] = lowerCaseLetter(password);
@@ -28,8 +33,12 @@ public class Password {
         return checkCriteria();
     }
 
+    /**
+     * Prints the appropriate messages to the console. Uses the class variable to specify the problem and doesn't require
+     * args.
+     */
     private void printCriteria() {
-
+        // If criteria don't met
         if (!checkCriteria()){
             System.out.println("1. Password contains at least one uppercase character ");
             System.out.println("2. Password contains at least one lowercase character");
@@ -40,21 +49,28 @@ public class Password {
             return;
         }
 
+        // If all the criteria met
         if (numberOfCriteriaMet() == 6){
             System.out.println("Very Strong password");
             return;
         }
 
+        // If criteria 5 and 6 met
         if (criteria[4] && criteria[5]){
             System.out.println("Strong password");
             return;
         }
 
+        // If criteria 3 and 6 met OR criteria 4 and 6 prints the message
         if ((criteria[2] && criteria[5]) || (criteria[3] && criteria[5]))
             System.out.println("Password OK");
 
     }
 
+    /**
+     * Calculates the total number of criteria which are met in the password
+     * @return Total number of the criteria that met in the password.
+     */
     private int numberOfCriteriaMet() {
         short total = 0;
         for (boolean c : criteria) {
@@ -64,6 +80,10 @@ public class Password {
         return total;
     }
 
+    /**
+     *
+     * @return
+     */
     private boolean checkCriteria(){
         if (!criteria[4])
             return false;
@@ -73,6 +93,10 @@ public class Password {
         return true;
     }
 
+    /**
+     *
+     * @return True if the criteria are more than or equal to 3, False otherwise
+     */
     private boolean totalCriteriaMet() {
         return numberOfCriteriaMet() > 2;
     }
@@ -97,8 +121,15 @@ public class Password {
         return (password.length()>=8);
     }
 
+    /**
+     * Check in a string if there are sequential or consecutive characters. Each of the have not to exceed 3 in number.
+     * Consecutive: java123, abcjava, javaabapython == TRUE. java, java12, abdc == FALSE
+     * Identical: aaaataszxc, javaaaa, ja111va == TRUE, zxcdf, java12python, jaava == FALSE
+     * @param password Text to be checked if contain one of the two types.
+     * @return TRUE if both of them not met, FALSE otherwise
+     */
     private boolean sequenceCharacters(String password){
-        // consecutive
+        // consecutive "abc" == TRUE adbc == FALSE
         Pattern p = Pattern.compile(".*(abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|012|123|234|345|456|567|678)+.*");
         Matcher matcher = p.matcher(password);
         boolean consecutive = matcher.matches();
