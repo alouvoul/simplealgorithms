@@ -14,6 +14,7 @@ public class Password {
 
     String password;
     boolean[] criteria = new boolean[6];
+    short CRITERIA_TOTAL_NUMBER = 6;
 
     /**
      * Called to check a password if met the criteria. Organizes the steps to be completed.
@@ -21,12 +22,12 @@ public class Password {
      * @return TRUE if the password is acceptable, FALSE if doesn't met the criteria
      */
     public boolean validation(String password){
-        criteria[0] = upperCaseLetter(password);
-        criteria[1] = lowerCaseLetter(password);
-        criteria[2] = containNumber(password);
-        criteria[3] = specialCharacter(password);
-        criteria[4] = size(password);
-        criteria[5] = sequenceCharacters(password);
+        criteria[Criteria.UPPERCASE.ordinal()] = upperCaseLetter(password);
+        criteria[Criteria.LOWERCASE.ordinal()] = lowerCaseLetter(password);
+        criteria[Criteria.ONE_NUMBER.ordinal()] = containNumber(password);
+        criteria[Criteria.SPECIAL_CHARACTER.ordinal()] = specialCharacter(password);
+        criteria[Criteria.PASSWORD_LENGTH.ordinal()] = size(password);
+        criteria[Criteria.SEQUENCE_CHARACTERS.ordinal()] = sequenceCharacters(password);
         System.out.println(Arrays.toString(criteria));
 
         printCriteria();
@@ -50,7 +51,7 @@ public class Password {
         }
 
         // If all the criteria met
-        if (numberOfCriteriaMet() == 6){
+        if (numberOfCriteriaMet() == CRITERIA_TOTAL_NUMBER){
             System.out.println("Very Strong password");
             return;
         }
