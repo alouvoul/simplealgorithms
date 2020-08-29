@@ -7,14 +7,14 @@ import lombok.NoArgsConstructor;
 import java.util.Arrays;
 
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Password {
 
-    String password;
-    boolean[] criteria = new boolean[6];
-    short CRITERIA_TOTAL_NUMBER = 6;
+    private String password;
+    private boolean[] criteria = new boolean[6];
+    private final short CRITERIA_TOTAL_NUMBER = 6;
+    private final short MINIMUM_CRITERIA = 2;
+    private final short MINIMUM_PASSWORD_LENGTH = 8;
 
     /**
      * Called to check a password if met the criteria. Organizes the steps to be completed.
@@ -57,13 +57,14 @@ public class Password {
         }
 
         // If criteria 5 and 6 met
-        if (criteria[4] && criteria[5]){
+        if (criteria[Criteria.PASSWORD_LENGTH.ordinal()] && criteria[Criteria.SEQUENCE_CHARACTERS.ordinal()]){
             System.out.println("Strong password");
             return;
         }
 
         // If criteria 3 and 6 met OR criteria 4 and 6 prints the message
-        if ((criteria[2] && criteria[5]) || (criteria[3] && criteria[5]))
+        if ((criteria[Criteria.ONE_NUMBER.ordinal()] && criteria[Criteria.SEQUENCE_CHARACTERS.ordinal()]) ||
+                (criteria[Criteria.SPECIAL_CHARACTER.ordinal()] && criteria[Criteria.SEQUENCE_CHARACTERS.ordinal()]))
             System.out.println("Password OK");
 
     }
@@ -86,7 +87,7 @@ public class Password {
      * @return
      */
     private boolean checkCriteria(){
-        if (!criteria[4])
+        if (!criteria[Criteria.PASSWORD_LENGTH.ordinal()])
             return false;
 
         if(!totalCriteriaMet())
@@ -99,7 +100,7 @@ public class Password {
      * @return True if the criteria are more than or equal to 3, False otherwise
      */
     private boolean totalCriteriaMet() {
-        return numberOfCriteriaMet() > 2;
+        return numberOfCriteriaMet() > MINIMUM_CRITERIA;
     }
 
     private boolean upperCaseLetter(String password){
@@ -119,7 +120,7 @@ public class Password {
     }
 
     private boolean size(String password){
-        return (password.length()>=8);
+        return (password.length() >= MINIMUM_PASSWORD_LENGTH);
     }
 
     /**
