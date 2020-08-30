@@ -10,6 +10,7 @@ public class SimpleAlgorithmsUI {
         boolean flag = true;
 
         while (flag){
+            System.out.println("=========================================\n");
             System.out.println("1. Program that calculates the factorial of a number n");
             System.out.println("2. Find the maximum value of n as int so that the calculated output is valid");
             System.out.println("3. Prime number");
@@ -29,7 +30,7 @@ public class SimpleAlgorithmsUI {
                     System.out.println(f.calculateFactorial(numberFactorial));
                     break;
                 case 2:
-                    System.out.println("Under Construction");
+                    System.out.println(new Factorial().maximumValueFactorial());
                     break;
                 case 3:
                     System.out.println("Check a number if it is a prime:");

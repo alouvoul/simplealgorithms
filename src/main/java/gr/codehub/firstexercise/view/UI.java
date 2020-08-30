@@ -16,7 +16,8 @@ public class UI {
         boolean flag = true;
 
         while (flag){
-            System.out.println("1. Exercise 1 - Simple algorithms");
+            System.out.println("=========================================");
+            System.out.println("\n1. Exercise 1 - Simple algorithms");
             System.out.println("2. Exercise 2 - Arrays and collections");
             System.out.println("3. Exercise 3 - Password validation");
             System.out.println("4. Exit");

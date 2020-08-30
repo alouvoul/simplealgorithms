@@ -15,6 +15,7 @@ public class CollectionsExUI {
         boolean flag = true;
 
         while (flag) {
+            System.out.println("=========================================\n");
             System.out.println("1. Given a list of integers, return a sub list that contains only the prime numbers");
             System.out.println("2. Eliminating the duplicates from a list");
             System.out.println("3. Returns the digits of number in descending order");

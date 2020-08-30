@@ -40,4 +40,15 @@ public class Factorial {
         return calculateFactorial(randomNumber);
     }
 
+    public int maximumValueFactorial(){
+        int number = 1;
+        int fact = 1;
+        while (true){
+            if ( fact < 0)
+                break;
+            number++;
+            fact *=number;
+        }
+        return number;
+    }
 }
